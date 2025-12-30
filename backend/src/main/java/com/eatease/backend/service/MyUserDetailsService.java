@@ -16,13 +16,17 @@ public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepo userRepo;
 
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Users> user = userRepo.findByUsername(username);
-        if (user.isEmpty()) {
-            System.out.println("User Not Found");
-            throw new UsernameNotFoundException("user not found");
-        }
+    public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException {
 
-        return new UserPrincipal(user.orElse(null));
+        String normalizedUsername = username.toLowerCase().trim();
+
+        Users user = userRepo.findByUsername(normalizedUsername)
+                .orElseThrow(() -> {
+                    System.out.println("User Not Found: " + normalizedUsername);
+                    return new UsernameNotFoundException("User not found");
+                });
+
+        return new UserPrincipal(user);
     }
 }
