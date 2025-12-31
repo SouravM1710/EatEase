@@ -48,4 +48,8 @@ public class RestaurantService {
         }
         restaurantRepo.delete(restaurant);
     }
+    public void deleteRestaurantAsAdmin(Long restaurantId) {
+        Restaurant restaurant = getById(restaurantId);
+        restaurantRepo.delete(restaurant);
+    }
 }
