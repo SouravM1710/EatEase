@@ -1,6 +1,6 @@
 package com.eatease.backend.controller;
 
-
+import com.eatease.backend.model.Role;
 import com.eatease.backend.model.Users;
 import com.eatease.backend.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
 
     public AuthController(UserService userService,
-                          AuthenticationManager authenticationManager) {
+            AuthenticationManager authenticationManager) {
         this.userService = userService;
         this.authenticationManager = authenticationManager;
     }
@@ -31,20 +31,63 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Users user) {
+    public ResponseEntity<?> login(@RequestBody Users user) {
 
-        Authentication authentication =
-                authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(
-                                user.getUsername(),
-                                user.getPassword()
-                        )
-                );
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        user.getUsername(),
+                        user.getPassword()));
 
         if (authentication.isAuthenticated()) {
-            return ResponseEntity.ok("Login successful");
+            // Fetch the authenticated user from database
+            Users authenticatedUser = userService.getByUsername(user.getUsername());
+
+            // Create a response object without password
+            UserResponse userResponse = new UserResponse(
+                    authenticatedUser.getId(),
+                    authenticatedUser.getUsername(),
+                    authenticatedUser.getRole());
+
+            return ResponseEntity.ok(userResponse);
         }
 
         return ResponseEntity.status(401).body("Invalid credentials");
+    }
+
+    // Inner class for user response (without password)
+    private static class UserResponse {
+        private Long id;
+        private String username;
+        private Role role;
+
+        public UserResponse(Long id, String username, Role role) {
+            this.id = id;
+            this.username = username;
+            this.role = role;
+        }
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public Role getRole() {
+            return role;
+        }
+
+        public void setRole(Role role) {
+            this.role = role;
+        }
     }
 }

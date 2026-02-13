@@ -10,6 +10,7 @@ public class Dish {
 
     private String name;
     private double price;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "restaurant_id", nullable = false)
@@ -45,5 +46,13 @@ public class Dish {
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -54,11 +54,16 @@ const RestaurantMenu = () => {
                 className="bg-white rounded-xl p-5 shadow-sm flex justify-between items-center"
               >
                 {/* Food info */}
-                <div>
+                <div className="flex-1">
                   <h3 className="text-lg font-semibold text-gray-900">
                     {item.name}
                   </h3>
-                  <p className="text-gray-500 mt-1">
+                  {item.description && (
+                    <p className="text-sm text-gray-600 mt-1">
+                      {item.description}
+                    </p>
+                  )}
+                  <p className="text-gray-900 font-medium mt-2">
                     ₹{item.price}
                   </p>
                 </div>

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useTheme } from "../context/ThemeContext";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const { cartItems } = useCart();
   const { dark, setDark } = useTheme()
+  const { user, logout } = useAuth()
 
 
   return (
@@ -21,6 +23,12 @@ const Navbar = () => {
             Home
           </Link>
 
+          {user && (
+            <Link to="/dashboard" className="hover:text-red-500">
+              Dashboard
+            </Link>
+          )}
+
           <Link to="/cart" className="relative hover:text-red-500">
             Cart
             {cartItems.length > 0 && (
@@ -30,12 +38,27 @@ const Navbar = () => {
             )}
           </Link>
 
-          <Link
-            to="/login"
-            className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
-          >
-            Login
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-gray-600 dark:text-gray-400">
+                {user.name}
+              </span>
+              <button
+                onClick={logout}
+                className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
+            >
+              Login
+            </Link>
+          )}
+
           <button onClick={() => setDark(!dark)} className="text-xl">
             {dark ? "🌙" : "☀️"}
           </button>

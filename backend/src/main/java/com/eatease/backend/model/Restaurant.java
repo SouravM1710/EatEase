@@ -13,6 +13,12 @@ public class Restaurant {
     private String address;
     private String description;
     private String openingHours;
+    private String cuisine;
+    private Double rating;
+    private String phone;
+
+    @Lob
+    private byte[] image;
 
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
@@ -64,5 +70,37 @@ public class Restaurant {
 
     public void setOwner(Users owner) {
         this.owner = owner;
+    }
+
+    public String getCuisine() {
+        return cuisine;
+    }
+
+    public void setCuisine(String cuisine) {
+        this.cuisine = cuisine;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

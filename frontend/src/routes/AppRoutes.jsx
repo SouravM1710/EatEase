@@ -5,6 +5,7 @@ import Login from "../pages/Login"
 import Signup from "../pages/Signup"
 import RestaurantMenu from "../pages/RestaurantMenu"
 import Checkout from "../pages/Checkout"
+import Dashboard from "../pages/Dashboard"
 
 
 const AppRoutes = () => {
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/restaurant/:id" element={<RestaurantMenu />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   )
 }
