@@ -52,17 +52,11 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('user')
     }
 
-    const switchRole = (role, restaurantId = null) => {
-        // Note: This is for UI demo purposes only
-        // In production, role switching should be handled by backend
-        setUser({ ...user, role, restaurantId })
-    }
 
     const value = {
         user,
         login,
         logout,
-        switchRole,
         isAuthenticated: !!user,
         loading,
         error,

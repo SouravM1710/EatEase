@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useCart } from "../context/CartContext"
 
 const Checkout = () => {
@@ -68,9 +69,12 @@ const Checkout = () => {
             <span>₹{total}</span>
           </div>
 
-          <button className="w-full bg-green-500 text-white py-3 rounded-full hover:bg-green-600">
-            Place Order
-          </button>
+          <Link
+            to="/payment"
+            className="block w-full bg-green-500 text-white text-center py-3 rounded-full hover:bg-green-600"
+          >
+            Pay ₹{total}
+          </Link>
         </div>
       </div>
     </div>

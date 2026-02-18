@@ -1,13 +1,17 @@
 import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 
 const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
+  const location = useLocation()
   const { login, loading, error: authError } = useAuth()
   const [error, setError] = useState("")
+
+  // Where to go after login — either the page they tried to access, or dashboard
+  const redirectTo = location.state?.from || "/dashboard"
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -23,8 +27,8 @@ const Login = () => {
       // Call real backend API
       await login(username, password)
 
-      // Redirect to dashboard
-      navigate("/dashboard")
+      // Redirect to intended page or dashboard
+      navigate(redirectTo, { replace: true })
     } catch (err) {
       setError(err.message || "Login failed. Please check your credentials.")
     }
