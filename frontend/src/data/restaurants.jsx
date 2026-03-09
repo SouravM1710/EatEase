@@ -1,0 +1,55 @@
+const restaurants = [
+  {
+    id: 1,
+    name: "Spice Villa",
+    cuisine: "Indian, Chinese",
+    rating: 4.5,
+    time: "30 mins",
+    image: "https://picsum.photos/400/300?random=1",
+    address: "123 MG Road, Bangalore, Karnataka 560001",
+    phone: "+91 98765 43210",
+    openingHours: "10:00 AM - 11:00 PM",
+    description: "Authentic Indian and Chinese cuisine with a modern twist. Family-friendly dining experience.",
+    menu: [
+      { id: 101, name: "Paneer Butter Masala", price: 220, description: "Soft paneer cubes cooked in rich tomato and butter gravy with aromatic spices" },
+      { id: 102, name: "Veg Fried Rice", price: 180, description: "Fragrant basmati rice stir-fried with fresh vegetables and soy sauce" },
+      { id: 103, name: "Butter Naan", price: 40, description: "Soft and fluffy Indian bread brushed with butter, perfect with curries" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Burger Hub",
+    cuisine: "Burgers, Fast Food",
+    rating: 4.2,
+    time: "25 mins",
+    image: "https://picsum.photos/400/300?random=2",
+    address: "456 Brigade Road, Bangalore, Karnataka 560025",
+    phone: "+91 98765 43211",
+    openingHours: "11:00 AM - 12:00 AM",
+    description: "Gourmet burgers and fast food made with fresh ingredients. Quick service guaranteed.",
+    menu: [
+      { id: 201, name: "Cheese Burger", price: 150, description: "Juicy beef patty with melted cheese, lettuce, tomato, and special sauce" },
+      { id: 202, name: "French Fries", price: 90, description: "Crispy golden fries seasoned with salt and served hot" },
+      { id: 203, name: "Veg Wrap", price: 120, description: "Fresh vegetables and hummus wrapped in soft tortilla with tangy dressing" },
+    ],
+  },
+  {
+    id: 3,
+    name: "Pizza Palace",
+    cuisine: "Italian, Pizza",
+    rating: 4.6,
+    time: "35 mins",
+    image: "https://picsum.photos/400/300?random=3",
+    address: "789 Indiranagar, Bangalore, Karnataka 560038",
+    phone: "+91 98765 43212",
+    openingHours: "12:00 PM - 11:30 PM",
+    description: "Wood-fired pizzas and authentic Italian dishes. Perfect for family gatherings.",
+    menu: [
+      { id: 301, name: "Margherita Pizza", price: 250, description: "Classic pizza with fresh mozzarella, tomato sauce, and basil leaves" },
+      { id: 302, name: "Farmhouse Pizza", price: 320, description: "Loaded with mushrooms, bell peppers, onions, tomatoes, and olives" },
+      { id: 303, name: "Garlic Bread", price: 140, description: "Toasted bread topped with garlic butter and herbs, served warm" },
+    ],
+  },
+]
+
+export default restaurants
