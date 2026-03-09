@@ -1,0 +1,58 @@
+const users = [
+    {
+        id: 1,
+        name: "Rahul Sharma",
+        email: "rahul@example.com",
+        phone: "+91 98765 43210",
+        joinDate: "2025-12-15",
+        totalOrders: 24,
+        status: "active",
+    },
+    {
+        id: 2,
+        name: "Priya Patel",
+        email: "priya@example.com",
+        phone: "+91 98765 43211",
+        joinDate: "2026-01-05",
+        totalOrders: 8,
+        status: "active",
+    },
+    {
+        id: 3,
+        name: "Amit Kumar",
+        email: "amit@example.com",
+        phone: "+91 98765 43212",
+        joinDate: "2025-11-20",
+        totalOrders: 42,
+        status: "active",
+    },
+    {
+        id: 4,
+        name: "Sneha Reddy",
+        email: "sneha@example.com",
+        phone: "+91 98765 43213",
+        joinDate: "2026-01-10",
+        totalOrders: 5,
+        status: "active",
+    },
+    {
+        id: 5,
+        name: "Vikram Singh",
+        email: "vikram@example.com",
+        phone: "+91 98765 43214",
+        joinDate: "2025-10-01",
+        totalOrders: 67,
+        status: "inactive",
+    },
+    {
+        id: 6,
+        name: "Anjali Mehta",
+        email: "anjali@example.com",
+        phone: "+91 98765 43215",
+        joinDate: "2025-12-28",
+        totalOrders: 15,
+        status: "active",
+    },
+]
+
+export default users
