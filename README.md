@@ -12,7 +12,7 @@ Features
 
 Customer
 
-- User registration and login with JWT authentication
+- User registration and login
 - Browse restaurant menus
 - View food item details
 - Add items to cart
@@ -49,10 +49,6 @@ Backend
 Database
 
 - PostgreSQL
-
-Authentication
-
-- JWT (JSON Web Token)
 
 ---
 
